@@ -1,0 +1,56 @@
+/* BASICS */
+
+body {
+    margin: 0;
+}
+
+.post-item img {
+    width: 50%;
+}
+
+header {
+    background-color: #292929;
+}
+
+ul {
+    list-style-type: none;
+}
+
+/* SPECIFICS */
+
+.logo {
+    margin: 0;
+    font-size: 2.5rem;
+    width: 5.313rem;
+    height: 2.063rem;
+    /* opacity: -1; */
+    color: #ffffff;
+    font-family: Eurofurenceregular;
+    font-weight: 400;
+    letter-spacing: -0.05rem;
+}
+
+.logo span {
+    color: #58c93a;
+    letter-spacing: -0.05rem;
+}
+
+/* HELPERS */
+
+.container {
+    max-width: 980px;
+    margin: 0;
+    padding: 0 16.25rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex.space-between {
+    justify-content: space-between;
+}
+
+.flex.align-center {
+    align-items: center;
+}
