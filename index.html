@@ -12,6 +12,7 @@
     <header>
         <div class="header-content container flex space-between align-center">
             <div class="logo">Blogin<span>.</span></div>
+            <button onclick="openMenu()" class="menu-btn">☰</button>
             <ul class="main-nav flex align-center">
                 <li class="flex"><a class="flex align-center justify-center grow" href="#">Journal</a></li>
                 <li class="flex"><a class="flex align-center justify-center grow" href="#">About</a></li>
@@ -83,6 +84,11 @@
                     src="images/basketball.png" alt="Facebook"></a>
         </nav>
     </footer>
+    <script>
+        function openMenu() {
+            document.querySelector('.main-nav').classList.toggle('open');
+        }
+    </script>
 </body>
 
 </html>
