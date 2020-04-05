@@ -9,6 +9,21 @@
 </head>
 
 <body>
+    <div onclick="openMenu()" class="screen"></div>
+    <div class="modal flex justify-center align-center">
+        <div class="modal-content flex column align-center">
+            <div class="modal-header flex justify-center">
+                <h3 class="modal-title">Join us to get access to the latest stories!</h3>
+                <button onclick="toggleModal()" class="close-modal">X</button>
+            </div>
+            <div class="modal-input">
+                <label for="email">Your Email:</label>
+                <input type="email" name="email">
+            </div>
+            <button class="submit-button">Submit</button>
+
+        </div>
+    </div>
     <header>
         <div class="header-content container flex space-between align-center">
             <div class="logo">Blogin<span>.</span></div>
@@ -23,8 +38,8 @@
     <section class="posts container flex column">
         <div class="post-item flex">
             <img src="images/image1.png" alt="">
-            <div class="post-text">
-                <h2>Duis aute irure dolor in henderit in voluptate.</h2>
+            <div class="post-content">
+                <h2 class="post-title">Duis aute irure dolor in henderit in voluptate.</h2>
                 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                     commo
                     doconsequat, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -32,13 +47,14 @@
                 </p>
                 <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
                     pariatur...</p>
-                <button>Continue reading<span>&nbsp; &nbsp;⟶</span></button>
+                <button onclick="toggleModal()" class="post-button">Continue reading</button>
+                <!-- <button class="post-button">Continue reading<span>&nbsp; &nbsp;⟶</span></button> -->
             </div>
         </div>
         <div class="post-item flex">
             <img src="images/image2.png" alt="">
-            <div class="post-text">
-                <h2>Duis aute irure dolor in henderit in voluptate.</h2>
+            <div class="post-content">
+                <h2 class="post-title">Duis aute irure dolor in henderit in voluptate.</h2>
                 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                     commo
                     doconsequat, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -46,13 +62,13 @@
                 </p>
                 <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
                     pariatur...</p>
-                <button>Continue reading<span>&nbsp; &nbsp;⟶</span></button>
+                <button onclick="toggleModal()" class="post-button">Continue reading</button>
             </div>
         </div>
         <div class="post-item flex">
             <img src="images/image3.png" alt="">
-            <div class="post-text">
-                <h2>Duis aute irure dolor in henderit in voluptate.</h2>
+            <div class="post-content">
+                <h2 class="post-title">Duis aute irure dolor in henderit in voluptate.</h2>
                 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                     commo
                     doconsequat, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -60,18 +76,18 @@
                 </p>
                 <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
                     pariatur...</p>
-                <button>Continue reading<span>&nbsp; &nbsp;⟶</span></button>
+                <button onclick="toggleModal()" class="post-button">Continue reading</button>
             </div>
         </div>
         <div class="page-control flex space-between align-center">
-            <a class="flex align-center">&leftarrow; &nbsp; Previous</a>
-            <a class="flex align-center">Next &nbsp; &rightarrow;</a>
+            <a class="previous flex align-center">Previous</a>
+            <a class="next flex align-center">Next</a>
         </div>
     </section>
     <footer class="main-footer flex column justify-center align-center">
         <div class="footer-logo">Blogin<span>.</span></div>
-        <p>&copy; 2014 Blogin.com - <span class="capitalize">all rights reserved</span> - Find more free <span
-                class="capitalize">templates</span> at
+        <p class="footer-rights">2014 Blogin.com - <span class="capitalize">all rights reserved</span> - Find more free
+            <span class="capitalize">templates</span> at
             <span class="bold">Pixelhint.com</span></p>
         <nav class="flex">
             <a class="facebook-logo flex align-center justify-center" href="facebook.com"><img src="images/facebook.png"
@@ -87,6 +103,11 @@
     <script>
         function openMenu() {
             document.querySelector('.main-nav').classList.toggle('open');
+            document.querySelector('.screen').classList.toggle('open-screen');
+
+        }
+        function toggleModal() {
+            document.querySelector('.modal').classList.toggle('open-modal');
         }
     </script>
 </body>

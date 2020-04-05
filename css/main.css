@@ -11,7 +11,7 @@
 }
 
 @font-face {
-    font-family: lato;
+    font-family: lato-bold;
     src: url(/fonts/lato/Lato-Bold.ttf);
     font-weight: bold;
 }
@@ -25,11 +25,12 @@ body {
 header {
     background-color: #292929;
     box-shadow: inset 0 -0.375rem 0 #1e1e1e;
-    height: 130px;
 }
 
 ul {
     list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 a {
@@ -45,17 +46,93 @@ p {
     margin: 0;
 }
 
+button {
+    cursor: pointer;
+    outline: none;
+}
+
 /* COMPONENTS */
 
-.header-content {
-    height: 100%;
+/* MODAL */
+
+.modal.open-modal {
+    visibility: visible;
 }
+
+.modal {
+    font-family: eurofurenceregular;
+    font-size: 1.5rem;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    background-color: #000000ab;
+    visibility: hidden;
+}
+
+.modal-content {
+    background-color: #292929;
+    color: #ffffff;
+    min-width: 50%;
+    height: 200px;
+    border-radius: 0.5rem;
+}
+
+.modal-header {
+    width: 100%;
+    border-bottom: 1px solid #c2c1c1;
+    padding: 1rem 0;
+    margin-bottom: 25px;
+}
+
+.modal-title {
+    font-weight: 200;
+    padding: 0 1rem;
+}
+
+.close-modal {
+    color: white;
+    background-color: #181818;
+    border: none;
+    border-radius: 0.3rem;
+    padding: 0 0.5rem;
+    margin: 0 0.5rem;
+}
+
+.close-modal:hover, .submit-button:hover {
+    color: #58c93a;
+}
+
+.modal-input {
+    margin-bottom: 15px;
+}
+
+.submit-button {
+    color: white;
+    background-color: #181818;
+    border: none;
+    border-radius: 0.3rem;
+    padding: 1rem;
+    font-size: 1rem;
+}
+
+/* SCREEN */
+
+.screen {
+    visibility: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #000000ab;
+    z-index: 1;
+}
+
+/* HEADER */
 
 .logo {
     font-size: 2.5rem;
     color: #ffffff;
     font-family: eurofurenceregular;
-    font-weight: 400;
     letter-spacing: -0.05rem;
 }
 
@@ -72,12 +149,8 @@ p {
     color: #ffffff;
     font-size: 2rem;
     cursor: pointer;
-    border-radius: 5px;
-    padding: 0px 5px 3px;
-}
-
-.menu-btn:focus {
-    outline: none;
+    border-radius: 0.3125rem;
+    padding: 0 0.3125rem 0.1875rem;
 }
 
 .menu-btn:hover {
@@ -91,12 +164,10 @@ p {
 .main-nav li {
     width: 130px;
     height: 130px;
-    box-shadow: -1px 0 0 #1d1d1d, inset -1px -6px 0 #1e1e1e;
     color: #ffffff;
-    font-family: Lato;
-    font-weight: bold;
-    letter-spacing: 0.8px;
-    font-size: 16px;
+    font-family: lato-bold;
+    letter-spacing: 0.05rem;
+    box-shadow: -1px 0 0 #1d1d1d, inset -1px -6px 0 #1e1e1e;
 }
 
 .main-nav li:last-child {
@@ -107,6 +178,8 @@ p {
     color: #58c93a;
     box-shadow: -1px 0 0 #1d1d1d, inset 0px -6px 0 #58c93a;
 }
+
+/* POSTS */
 
 .posts {
     border-right: 1px solid #e1e0e0;
@@ -120,73 +193,69 @@ p {
 
 .post-item img {
     margin-inline-end: 2.5rem;
-    width: 48%;
+    flex-basis: 50%;
     flex-shrink: 0;
 }
 
-.post-text {
+.post-content {
     color: #606060;
-    font-family: Lato;
+    font-family: lato;
     font-size: 1rem;
-    font-weight: 400;
     line-height: 1.25rem;
     margin-right: 1.5rem;
     position: relative;
     top: -0.35em;
+    flex-shrink: 1;
 }
 
-.post-text h2 {
+.post-content h2 {
     color: #4f4e4e;
-    font-family: Lato;
+    font-family: lato-bold;
     font-size: 1.75rem;
-    font-weight: 700;
     line-height: 1.875rem;
     text-transform: uppercase;
     margin-bottom: 2.875rem;
-    letter-spacing: 0.84px;
+    letter-spacing: 0.0525rem;
 }
 
-.post-text p {
-    letter-spacing: 0.48px;
+.post-content p {
+    letter-spacing: 0.03rem;
 }
 
-.post-text p:first-of-type {
+.post-content p:first-of-type {
     margin-bottom: 1.75rem;
 }
 
-.post-text p+p {
+.post-content p+p {
     margin-bottom: 2.75rem;
 }
 
-.post-text button {
+.post-content .post-button {
     border: 2px solid #c2c2c2;
     background-color: #ffffff;
     border-radius: 1.375rem;
     color: #c2c1c1;
-    font-family: Lato;
+    font-family: lato-bold;
     font-size: 1rem;
-    font-weight: 700;
     text-transform: capitalize;
     line-height: 1.25rem;
-    letter-spacing: 0.48px;
+    letter-spacing: 0.03rem;
     padding: 0.65rem 1.4375rem;
     position: relative;
     top: 7px;
-    cursor: pointer;
+    transition: 0.3s;
 }
 
-.post-text button:hover {
+.post-content .post-button:hover {
     border: 2px solid #58c93a;
     color: #58c93a;
 }
 
-.post-text button span {
-    display: none;
+.post-button:hover::after {
+    content: " ⟶";
 }
 
-.post-text button:hover span {
-    display: inline;
-}
+/* PAGINATION */
 
 .page-control {
     height: 75px;
@@ -197,17 +266,26 @@ p {
 .page-control a {
     height: 100%;
     color: #818181;
-    font-family: Lato;
-    font-size: 18px;
-    font-weight: 700;
+    font-family: lato-bold;
+    font-size: 1.125rem;
     text-transform: uppercase;
-    letter-spacing: 0.9px;
+    letter-spacing: 0.05625rem;
     cursor: pointer;
 }
 
 .page-control a:hover {
     color: #58c93a;
 }
+
+.next::after {
+    content: " ⟶";
+}
+
+.previous::before {
+    content: "⟵ ";
+}
+
+/* FOOTER */
 
 .main-footer {
     height: 315px;
@@ -219,7 +297,7 @@ p {
     font-size: 2.5rem;
     font-family: eurofurenceregular;
     font-weight: 400;
-    letter-spacing: -0.8px;
+    letter-spacing: -0.05rem;
     color: #292929;
 }
 
@@ -230,15 +308,18 @@ p {
 .main-footer p {
     margin: 2.375rem 0;
     color: #a6a6a6;
-    font-family: Lato;
+    font-family: lato;
     font-size: 0.8125rem;
-    font-weight: 400;
     line-height: 1.25rem;
-    letter-spacing: 0.39px;
+    letter-spacing: 0.024375rem;
     text-align: center;
 }
 
-.main-footer p span:last-of-type {
+.footer-rights::before {
+    content: '©';
+}
+
+footer-rights span:last-of-type {
     color: #939292;
 }
 
@@ -261,7 +342,7 @@ p {
 
 .container {
     max-width: 980px;
-    margin: 0 17.333vw;
+    margin: 0 auto;
 }
 
 .flex {
@@ -303,36 +384,27 @@ p {
 /* MEDIA QUERIES */
 
 @media screen and (max-width:1250px) {
-    header {
-        height: 100px;
-    }
     .main-nav li {
         height: 100px;
         width: 120px;
     }
-    .container {
-        margin: 0 13vw;
-    }
     .post-item img {
         margin-right: 2rem;
     }
-    .post-text {
+    .post-content {
         display: flex;
         flex-flow: column;
         justify-content: space-around;
         margin-right: 0.5rem;
     }
-    .post-text h2 {
+    .post-content h2 {
         font-size: 1.5rem;
-        margin-bottom: 8px;
+        margin-bottom: 0.5rem;
     }
-    .post-text p:first-of-type {
-        margin-bottom: 5px;
+    .post-content p+p {
+        flex-grow: 1;
     }
-    .post-text p+p {
-        margin-bottom: 5px;
-    }
-    .post-text button {
+    .post-content button {
         width: max-content;
     }
 }
@@ -341,40 +413,47 @@ p {
     html {
         font-size: 14px;
     }
-    .container {
-        margin: 0 10vw;
-    }
-    .main-nav li {
-        width: 85px;
+    .post-content {
+        margin-right: 0.5rem;
     }
 }
 
 @media screen and (max-width:740px) {
     html {
-        font-size: 16px;
+        font-size: 18px;
     }
     header {
         position: fixed;
         z-index: 1;
         width: 100%;
     }
-    .post-item {
-        padding: 15px;
-        display: flex;
-        flex-flow: column;
-        box-shadow: 1px 1px 9px 1px rgba(0, 0, 0, 0.3);
-    }
-    .post-item img {
+    /* MODAL */
+    .modal-content {
         width: 100%;
-        margin: 0 0 20px 0;
-    }
-    .post-text {
-        margin-right: 0;
-        align-items: center;
+        height: 100%;
         text-align: center;
+        font-size: 2.5rem;
     }
-    .post-text button {
-        display: none;
+    .close-modal {
+        font-size: 1.5rem;
+        padding: 1rem;
+        margin: 0 0.5rem;
+        align-self: center;
+    }
+    .modal-input {
+        width: 100%;
+        margin-bottom: 2rem;
+        display: flex;
+        justify-content: center;
+    }
+    .modal-input label {
+        margin-inline-end: 1rem;
+    }
+    /* HEADER */
+    .header-content .logo {
+        display: flex;
+        align-items: center;
+        height: 100px;
     }
     .menu-btn {
         visibility: visible;
@@ -399,7 +478,26 @@ p {
         border-bottom: 2px solid #1d1d1d;
         box-shadow: none;
     }
+    /* POST */
+    .post-item {
+        padding: 1rem;
+        display: flex;
+        flex-flow: column;
+        box-shadow: 1px 1px 9px 1px rgba(0, 0, 0, 0.3);
+    }
+    .post-item img {
+        width: 100%;
+        margin: 0 0 1.25rem 0;
+    }
+    .post-content {
+        margin-right: 0;
+        align-items: center;
+        text-align: center;
+    }
     .open {
         transform: translate(0);
+    }
+    .open-screen {
+        visibility: visible;
     }
 }
