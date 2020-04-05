@@ -28,8 +28,8 @@
         <div class="header-content container flex space-between align-center">
             <div class="logo">Blogin<span>.</span></div>
             <button onclick="openMenu()" class="menu-btn">☰</button>
-            <ul class="main-nav flex align-center">
-                <li class="flex"><a onclick="toggleDropdown()"
+            <ul onclick="closeDropdown()" class="main-nav flex align-center">
+                <li class="flex"><a onclick="toggleDropdown(event)"
                         class="dropdown-btn flex column align-center justify-center grow" href="#">Journal
                         <ul class="dropdown-menu">
                             <li>October 2016</li>
@@ -112,13 +112,17 @@
         function openMenu() {
             document.querySelector('.main-nav').classList.toggle('open');
             document.querySelector('.screen').classList.toggle('open-screen');
-
+            closeDropdown()
         }
         function toggleModal() {
             document.querySelector('.modal').classList.toggle('open-modal');
         }
-        function toggleDropdown() {
+        function toggleDropdown(ev) {
+            ev.stopPropagation();
             document.querySelector('.dropdown-menu').classList.toggle('show')
+        }
+        function closeDropdown() {
+            document.querySelector('.dropdown-menu').classList.remove('show')
         }
     </script>
 </body>
